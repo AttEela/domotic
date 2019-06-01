@@ -45,5 +45,5 @@ password : FLASK_PWD (default is azerty)
 LOG_LEVEL is the level of the logger.  
 LOG_PATH is the folder where to store the logs in the file `server_activity.log`.  
 LOG_FORMAT is the format of logs to parse the logs easily.
-FLASK_USR is the username of the web app.
+FLASK_USR is the username of the web app.  
 FLASK_PWD is the password of the web app
