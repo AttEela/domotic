@@ -8,9 +8,9 @@ export PYTHONUNBUFFERED
 
 clean:
 	rm ./logs/server_activity*
-	
+
 build:
 	pip install -r requirements.txt
 
 up:
-	python server.py
+	python ./app/server.py
