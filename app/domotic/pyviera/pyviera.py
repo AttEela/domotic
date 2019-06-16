@@ -6,6 +6,7 @@ IFACE = '0.0.0.0'
 SSDP_MCAST_ADDR = '239.255.255.250'
 SSDP_PORT = 1900
 
+
 class VieraFinder(object):
 
     def __init__(self):
