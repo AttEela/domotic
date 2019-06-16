@@ -1,5 +1,5 @@
 import os
-from logger import LogManager
+from utils.logger import LogManager
 from flask import Flask, flash, render_template, request, session
 # For WSGI server
 try:
