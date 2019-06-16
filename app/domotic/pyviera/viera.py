@@ -1,6 +1,7 @@
 import urllib.request
 import xml.etree.ElementTree as ET
 
+
 class Viera(object):
     def __init__(self, hostname, control_url, service_type):
         self.hostname = hostname
@@ -118,6 +119,7 @@ class Viera(object):
 
     def hold(self):
         self._sendkey('NRC_HOLD-ONOFF')
+
 
 class Action(object):
     def __init__(self, name, arguments):

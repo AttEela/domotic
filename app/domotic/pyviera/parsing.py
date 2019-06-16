@@ -10,6 +10,7 @@ def parse_discovery_response(data):
         if len(parts) > 1 and parts[0] == 'LOCATION':
             return parts[1]
 
+
 def parse_description(data, abs_url):
     desc = objectify.fromstring(data)
 
@@ -17,12 +18,7 @@ def parse_description(data, abs_url):
         service = desc.device.serviceList.service
 
         service_type = service.serviceType.text
-        control_url= urlparse.urljoin(abs_url, service.controlURL.text)
-
-        # Unused urls
-        #service_id = urlparse.urljoin(abs_url, service.serviceId.text)
-        #scpd_url = urlparse.urljoin(abs_url, service.SCPDURL.text)
-        #event_url = urlparse.urljoin(abs_url, service.eventSubURL.text)
+        control_url = urlparse.urljoin(abs_url, service.controlURL.text)
 
         hostname = urlparse.urlparse(abs_url).netloc
 
