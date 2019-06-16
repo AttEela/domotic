@@ -1,5 +1,5 @@
-from sound_bar_controller import SoundBarController
-from tv_controller import TvController
+from .sound_bar_controller import SoundBarController
+from .tv_controller import TvController
 
 class DomoticManager():
 

@@ -1,4 +1,4 @@
-from pyviera.pyviera import VieraFinder
+from .pyviera.pyviera import VieraFinder
 
 class TvController():
     def __init__(self):
