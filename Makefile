@@ -15,10 +15,10 @@ build:
 	pip install -r requirements.txt
 
 server:
-        python ./app/server.py
+	python ./app/server.py
 
 handler:
-        python ./app/snips-handler.py
+	python ./app/snips-handler.py
 
 up:
 	python ./app/snips-handler.py & python ./app/server.py
