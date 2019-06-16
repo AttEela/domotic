@@ -2,8 +2,12 @@ import os
 import json
 import paho.mqtt.client as mqtt
 
+from domotic.domotic_manager import DomoticManager
+
 HOST = 'localhost'
 PORT = 1883  # default port for mqtt on raspberry
+
+domotic_manager = DomoticManager()
 
 
 def on_connect(client, userdata, flags, rc):
@@ -22,6 +26,9 @@ def on_message(client, userdata, msg):
         name = payload["intent"]["intentName"]
         slots = payload["slots"]
         print("Intent {0} detected with slots {1}".format(name, slots))
+        if slots[0]['rawValue'] == 'eteins':
+            if slots[0]['rawValue'] == 'télé':
+                domotic_manager.tv_controller.power_off()
 
 
 client = mqtt.Client()
