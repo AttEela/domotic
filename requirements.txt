@@ -2,3 +2,4 @@ flask==1.0.3
 cherrypy==18.1.1
 libsoundtouch
 lxml
+paho-mqtt
