@@ -14,5 +14,11 @@ build:
 	# see here for details https://stackoverflow.com/questions/13019942/why-cant-i-get-pip-install-lxml-to-work-within-a-virtualenv
 	pip install -r requirements.txt
 
+server:
+        python ./app/server.py
+
+handler:
+        python ./app/snips-handler.py
+
 up:
-	python ./app/snips-handler.py & python ./app/server.py 
+	python ./app/snips-handler.py & python ./app/server.py
