@@ -4,8 +4,6 @@ import paho.mqtt.client as mqtt
 
 from domotic.domotic_manager import DomoticManager
 
-HOST = 'localhost'
-PORT = 1883  # default port for mqtt on raspberry
 
 domotic_manager = DomoticManager()
 
@@ -31,9 +29,13 @@ def on_message(client, userdata, msg):
                 domotic_manager.tv_controller.power_off()
 
 
-client = mqtt.Client()
-client.on_connect = on_connect
-client.on_message = on_message
+if __name__ == '__main__':
 
-client.connect(HOST, PORT, 60)
-client.loop_forever()
+    HOST = 'localhost'
+    PORT = 1883  # default port for mqtt on raspberry
+
+    client = mqtt.Client()
+    client.on_connect = on_connect
+    client.on_message = on_message
+    client.connect(HOST, PORT, 60)
+    client.loop_forever()
