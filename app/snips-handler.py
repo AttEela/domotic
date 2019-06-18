@@ -3,7 +3,7 @@ import json
 import paho.mqtt.client as mqtt
 
 from domotic.domotic_manager import DomoticManager
-
+from domotic.snips.slots_to_actions import snips_slots_to_actions
 
 domotic_manager = DomoticManager()
 
@@ -24,9 +24,11 @@ def on_message(client, userdata, msg):
         name = payload["intent"]["intentName"]
         slots = payload["slots"]
         print("Intent {0} detected with slots {1}".format(name, slots))
-        if slots[0]['rawValue'] == 'eteins':
-            if slots[1]['rawValue'] == 'télé':
-                domotic_manager.tv_controller.power_off()
+        print("--")
+        print(snips_slots_to_actions(slots))
+        # if slots[0]['rawValue'] == 'eteins':
+        #     if slots[1]['rawValue'] == 'télé':
+        #         domotic_manager.tv_controller.power_off()
 
 
 if __name__ == '__main__':
