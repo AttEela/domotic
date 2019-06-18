@@ -3,9 +3,7 @@ import json
 import paho.mqtt.client as mqtt
 
 from domotic.domotic_manager import DomoticManager
-
-HOST = 'localhost'
-PORT = 1883  # default port for mqtt on raspberry
+from domotic.snips.slots_to_actions import snips_slots_to_actions
 
 domotic_manager = DomoticManager()
 
@@ -26,14 +24,20 @@ def on_message(client, userdata, msg):
         name = payload["intent"]["intentName"]
         slots = payload["slots"]
         print("Intent {0} detected with slots {1}".format(name, slots))
-        if slots[0]['rawValue'] == 'eteins':
-            if slots[1]['rawValue'] == 'télé':
-                domotic_manager.tv_controller.power_off()
+        print("--")
+        print(snips_slots_to_actions(slots))
+        # if slots[0]['rawValue'] == 'eteins':
+        #     if slots[1]['rawValue'] == 'télé':
+        #         domotic_manager.tv_controller.power_off()
 
 
-client = mqtt.Client()
-client.on_connect = on_connect
-client.on_message = on_message
+if __name__ == '__main__':
 
-client.connect(HOST, PORT, 60)
-client.loop_forever()
+    HOST = 'localhost'
+    PORT = 1883  # default port for mqtt on raspberry
+
+    client = mqtt.Client()
+    client.on_connect = on_connect
+    client.on_message = on_message
+    client.connect(HOST, PORT, 60)
+    client.loop_forever()
