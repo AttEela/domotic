@@ -28,7 +28,7 @@ order_mapping_dict = {
         "VOLUME": ["volume", "volumes"]
     }, "quantity": {
     "MAX": ["max", "maximum", "fond"],
-    "SLIGHLTY": ["légèrement", "un peu"],
+    "SLIGHTLY": ["légèrement", "un peu"],
     "SIGNIFICANTLY": ["beaucoup", "énormément"],
     }, "location": {
     "ROOM": ["chambre", "chambres"],
