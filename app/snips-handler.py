@@ -28,7 +28,7 @@ def on_message(client, userdata, msg):
         slots = payload["slots"]
         logger.info("Intent {0} detected with slots {1}".format(name, slots))
         logger.info("--")
-        logger.info(snips_slots_to_actions(slots))
+        logger.info(snips_slots_to_actions(slots, logger))
         # if slots[0]['rawValue'] == 'eteins':
         #     if slots[1]['rawValue'] == 'télé':
         #         domotic_manager.tv_controller.power_off()
