@@ -46,9 +46,9 @@ def get_slots(slots):
     return understood_slots_dict
 
 
-def normalize_slots(understood_slots_dict, order_mapping_dict):
+def normalize_slots(understood_slots_dict, order_mapping_dict, logger):
     """
-    corrects slots raw values if necessary
+    compute dictionnary with normalized intent
     """
     normalized_order = {}
     if ("action" in understood_slots_dict) and ("objet" in understood_slots_dict):
@@ -57,10 +57,18 @@ def normalize_slots(understood_slots_dict, order_mapping_dict):
                 for defined_slot_possibility_name, defined_slot_possibilities in defined_slot_possibilities_dict.items():
                     if understood_slots_dict[understood_slot_name]["rawValue"].lower() in defined_slot_possibilities:
                         normalized_order[defined_slot_name] = defined_slot_possibility_name
+                    else:
+                        logger.info("Didn't understood word {word}".format(
+                            word=understood_slots_dict[understood_slot_name]["rawValue"].lower()))
 
     return normalized_order
 
 
-def snips_slots_to_actions(snips_slots, order_mapping_dict=order_mapping_dict):
+def snips_slots_to_actions(snips_slots, logger, order_mapping_dict=order_mapping_dict):
     understood_slots_dict = get_slots(snips_slots)
-    return normalize_slots(understood_slots_dict, order_mapping_dict)
+    return normalize_slots(understood_slots_dict, order_mapping_dict, logger)
+
+
+def execute_order(snips_slots, logger):
+    actions_to_execute = snips_slots_to_actions(snips_slots, logger)
+    return
