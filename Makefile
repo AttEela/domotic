@@ -8,15 +8,18 @@ export PYTHONUNBUFFERED
 
 PYTHON?=venv_domotic/bin/python
 
-venv_domotic: venv_domotic/bin/activate
+build: venv_domotic
+
+venv_domotic: lxml_requirements venv_domotic/bin/activate 
+
+lxml_requirements:
+	sudo apt-get install libxml2-dev libxslt-dev #because lxml contains C modules that need to be compiled
+	# see here for details https://stackoverflow.com/questions/13019942/why-cant-i-get-pip-install-lxml-to-work-within-a-virtualenv
+	touch lxml_requirements
 
 venv_domotic/bin/activate: requirements.txt
 	test -d venv_domotic || virtualenv -p /usr/local/bin/python3 venv_domotic
 	venv_domotic/bin/pip install -Ur requirements.txt
-
-build: venv_domotic
-	sudo apt-get install libxml2-dev libxslt-dev #because lxml contains C modules that need to be compiled
-	# see here for details https://stackoverflow.com/questions/13019942/why-cant-i-get-pip-install-lxml-to-work-within-a-virtualenv
 
 test: venv_domotic
 
