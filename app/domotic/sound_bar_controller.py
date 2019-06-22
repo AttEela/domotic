@@ -1,5 +1,6 @@
 from libsoundtouch import discover_devices
 
+
 class SoundBarController():
     """
         Class to control the sound bar.
@@ -26,7 +27,8 @@ class SoundBarController():
         """Set volume level: from 0 to 100."""
         self.device.set_volume(level)
 
+
 if __name__ == "__main__":
     sound_controller = SoundBarController()
     print(sound_controller.get_status())
-    #sound_controller.mute()
+    # sound_controller.mute()
