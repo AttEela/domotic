@@ -38,6 +38,9 @@ class Viera(object):
     def mute(self):
         self._sendkey('NRC_MUTE-ONOFF')
 
+    def pause(self):
+        self._sendkey('NRC_PAUSE-ONOFF')
+
     def num(self, number):
         for digit in str(number):
             self._sendkey('NRC_D%s-ONOFF' % digit)

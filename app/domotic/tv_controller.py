@@ -10,6 +10,9 @@ class TvController():
     def mute(self):
         self.device.mute()
 
+    def pause(self):
+        self.device.pause()
+
     def netflix(self):
         self.device.netflix()
 

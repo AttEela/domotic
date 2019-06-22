@@ -26,6 +26,7 @@ def on_message(client, userdata, msg):
         payload = json.loads(msg.payload)
         slots = payload["slots"]
         logger.info(snips_slots_to_actions(slots, logger))
+        domotic_manager.execute_command(snips_slots_to_actions(slots, logger))
         # if slots[0]['rawValue'] == 'eteins':
         #     if slots[1]['rawValue'] == 'télé':
         #         domotic_manager.tv_controller.power_off()
