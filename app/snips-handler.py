@@ -24,10 +24,7 @@ def on_message(client, userdata, msg):
         logger.info("Hotword detected!")
     elif msg.topic == 'hermes/intent/' + os.environ.get("DOMOTIC_INTENT"):
         payload = json.loads(msg.payload)
-        name = payload["intent"]["intentName"]
         slots = payload["slots"]
-        logger.info("Intent {0} detected with slots {1}".format(name, slots))
-        logger.info("--")
         logger.info(snips_slots_to_actions(slots, logger))
         # if slots[0]['rawValue'] == 'eteins':
         #     if slots[1]['rawValue'] == 'télé':
