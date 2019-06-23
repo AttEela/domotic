@@ -21,8 +21,6 @@ class DomoticManager():
                 self.sound_bar_controller.play_music()
             elif normalized_command["action"] == "PLAY":
                 self.sound_bar_controller.play_music()
-            elif normalized_command["action"] == "CHANGE":
-                self.sound_bar_controller.next_track()
 
         elif normalized_command["object"] == "VOLUME":
             if normalized_command["action"] == "TURN_OFF":
@@ -45,6 +43,8 @@ class DomoticManager():
                 self.sound_bar_controller.volume_up()
             elif normalized_command["action"] == "DECREASE":
                 self.sound_bar_controller.volume_down()
+            elif normalized_command["action"] == "CHANGE":
+                self.sound_bar_controller.next_track()
 
         elif normalized_command["object"] == "PAUSE":
             if normalized_command["action"] == "PUT":

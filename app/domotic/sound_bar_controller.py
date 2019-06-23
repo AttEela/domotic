@@ -25,11 +25,11 @@ class SoundBarController():
 
     def volume_up(self):
         """Volume up."""
-        self.device.volume_set(min(self.device.get_volume() + 5), 100)
+        self.device.set_volume(min(self.device.volume().actual + 5, 100))
 
     def volume_down(self):
         """Volume down."""
-        self.device.volume_set(max(self.device.get_volume() - 5), 0)
+        self.device.set_volume(max(self.device.volume().actual - 5, 0))
 
     def power_off(self):
         """Turn off the device."""
