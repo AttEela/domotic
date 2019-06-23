@@ -39,6 +39,7 @@ class SoundBarController():
         uri = "spotify:playlist:37i9dQZF1DWTwnEm1IYyoj"
         spot_user_id = ""
         self.device.play_media(Source.SPOTIFY, uri, spot_user_id)
+        self.device.set_volume(20)
         print("I play some music")
 
     def next_track(self):
