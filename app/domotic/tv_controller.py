@@ -14,6 +14,9 @@ class TvController():
     def pause(self):
         self.device.pause()
 
+    def play(self):
+        self.device.enter()
+
     def netflix(self):
         self.device.netflix()
 

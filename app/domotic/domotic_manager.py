@@ -48,6 +48,10 @@ class DomoticManager():
                 if normalized_command["action"] == "PUT":
                     self.tv_controller.pause()
 
+            elif normalized_command["object"] == "PLAY":
+                if normalized_command["action"] == "PUT":
+                    self.tv_controller.play()
+
             elif normalized_command["object"] == "DAMSO":
                 if normalized_command["action"] in ["PUT", "PLAY"]:
                     self.sound_bar_controller.play_damso()

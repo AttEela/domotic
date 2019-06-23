@@ -25,6 +25,7 @@ order_mapping_dict = {
         "DAMSO": ["damso"],
         "MUTE": ["mute"],
         "PAUSE": ["pause"],
+        "PLAY": ["play"],
         "VOLUME": ["volume", "volumes"]
     }, "quantity": {
     "MAX": ["max", "maximum", "fond"],
