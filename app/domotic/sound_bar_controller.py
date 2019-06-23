@@ -37,13 +37,25 @@ class SoundBarController():
 
     def play_music(self):
         uri = "spotify:playlist:37i9dQZF1DWTwnEm1IYyoj"
+        uri = "spotify:user:spotify:playlist:37i9dQZF1DWVuV87wUBNwc"
         spot_user_id = ""
         self.device.play_media(Source.SPOTIFY, uri, spot_user_id)
         self.device.set_volume(20)
+        self.device.shuffle(True)
+        self.device.next_track()
         print("I play some music")
 
     def next_track(self):
         self.device.next_track()
+
+    def play_damso(self):
+        uri = "spotify:artist:2UwqpfQtNuhBwviIC0f2ie"
+        spot_user_id = ""
+        self.device.play_media(Source.SPOTIFY, uri, spot_user_id)
+        self.device.set_volume(20)
+        self.device.shuffle(True)
+        self.device.next_track()
+        print("I play some music")
 
 
 if __name__ == "__main__":

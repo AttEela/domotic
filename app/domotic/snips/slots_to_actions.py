@@ -30,6 +30,8 @@ order_mapping_dict = {
     "MAX": ["max", "maximum", "fond"],
     "SLIGHTLY": ["légèrement", "un peu"],
     "SIGNIFICANTLY": ["beaucoup", "énormément"],
+    "LOUDER": ["plus fort"],
+    "LOWER": ["moins fort"]
     }, "location": {
     "ROOM": ["chambre", "chambres"],
     "LIVING": ["salon", "salons"],
