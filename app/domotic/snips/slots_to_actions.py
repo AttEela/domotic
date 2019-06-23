@@ -114,7 +114,7 @@ def normalize_slots(understood_slots_dict, order_mapping_dict, logger):
 
     """
     normalized_command = {}
-    if ("action" in understood_slots_dict) and ("object" in understood_slots_dict):
+    if ("action" in understood_slots_dict):
         for understood_slot_name, understood_slot in understood_slots_dict.items():
             word = understood_slots_dict[understood_slot_name]["rawValue"].lower()
             found = False
