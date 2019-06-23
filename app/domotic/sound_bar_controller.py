@@ -1,3 +1,4 @@
+import time
 from libsoundtouch import discover_devices
 from libsoundtouch.utils import Source
 
@@ -40,9 +41,10 @@ class SoundBarController():
         uri = "spotify:user:spotify:playlist:37i9dQZF1DWVuV87wUBNwc"
         spot_user_id = ""
         self.device.play_media(Source.SPOTIFY, uri, spot_user_id)
-        self.device.set_volume(20)
+        time.sleep(0.2)
         self.device.shuffle(True)
         self.device.next_track()
+        self.device.set_volume(20)
         print("I play some music")
 
     def next_track(self):
@@ -52,9 +54,10 @@ class SoundBarController():
         uri = "spotify:artist:2UwqpfQtNuhBwviIC0f2ie"
         spot_user_id = ""
         self.device.play_media(Source.SPOTIFY, uri, spot_user_id)
-        self.device.set_volume(20)
+        time.sleep(0.2)
         self.device.shuffle(True)
         self.device.next_track()
+        self.device.set_volume(20)
         print("I play some music")
 
 
