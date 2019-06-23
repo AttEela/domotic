@@ -10,7 +10,7 @@ PYTHON?=venv_domotic/bin/python
 
 build: venv_domotic
 
-venv_domotic: lxml_requirements venv_domotic/bin/activate 
+venv_domotic: lxml_requirements venv_domotic/bin/activate
 
 lxml_requirements:
 	sudo apt-get install libxml2-dev libxslt-dev #because lxml contains C modules that need to be compiled
@@ -31,6 +31,9 @@ handler: venv_domotic
 
 up: venv_domotic
 	$(PYTHON) ./app/snips-handler.py & $(PYTHON) ./app/server.py
+
+stop: # carefull, it kills all python process. I use make stop as two processes are launched with make up
+	ps aux |grep python |awk '{print $2}' | xargs kill
 
 clean:
 	rm ./logs/server_activity*

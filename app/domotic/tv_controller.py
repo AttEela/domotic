@@ -1,5 +1,6 @@
 from .pyviera.pyviera import VieraFinder
 
+
 class TvController():
     def __init__(self):
         self.device = VieraFinder().get_viera()
@@ -9,6 +10,9 @@ class TvController():
 
     def mute(self):
         self.device.mute()
+
+    def pause(self):
+        self.device.pause()
 
     def netflix(self):
         self.device.netflix()
